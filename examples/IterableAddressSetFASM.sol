@@ -1,7 +1,7 @@
 contract IterableAddressSet {
 
     function add(address addr) returns (bool) {
-        assembly {
+        assembly{
                 let index := sload(addr)
                 let added := not(index) // If offset index for 'addr' isn't 0, add to set.
                 jumpi(tag_write, added)
@@ -21,7 +21,7 @@ contract IterableAddressSet {
     }
 
     function remove(address addr) returns (bool removed) {
-        assembly {
+        assembly{
                 let index := sload(addr)
                 let removed := gt(index, 0) // If offset index for 'addr' isn't 0, add to set.
                 jumpi(tag_write, removed)
