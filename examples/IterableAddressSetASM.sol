@@ -4,7 +4,7 @@ contract AddressSet {
     // uint constant STORAGE_OFFSET = 0x11;
 
     function add(address addr) returns (bool added) {
-        assembly {  // [garbage, addr, added]
+        assembly{  // [garbage, addr, added]
                 swap1
                 dup1
                 sload           // Load current index.
